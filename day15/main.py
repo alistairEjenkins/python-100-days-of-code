@@ -50,12 +50,12 @@ def get_report():
 
 def sufficient_resources(drink):
     
+    resources_okay = True
     for ingredient in MENU[drink]['ingredients']:
         if resources[ingredient] < MENU[drink]['ingredients'][ingredient]:
             print(f"There is not enough {ingredient} to make a {drink}")
-            return False
-    else:
-        return True
+            resources_okay = False
+    return resources_okay
 
 def process_coins(drink):
     global money
